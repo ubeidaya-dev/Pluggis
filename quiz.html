@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pluggis - Quiz</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>
+    (function () {
+      const u = localStorage.getItem('pluggis_user');
+      if (!u) location.href = 'login.html';
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">📖</div>
+        <div class="sidebar-title">PLUGGIS.</div>
+      </div>
+
+      <div class="sidebar-section">MAIN MENU</div>
+
+      <nav class="nav">
+        <a href="home.html"><span class="icon">⌂</span> Hem</a>
+        <a href="prov.html"><span class="icon">📄</span> Prov</a>
+        <a href="inteprov.html"><span class="icon">☕</span> Inte prov</a>
+        <a href="upload.html"><span class="icon">📷</span> Foto</a>
+        <a class="active" href="quiz.html"><span class="icon">✅</span> Quiz <span style="margin-left:auto;opacity:.55;">›</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="plan">
+          <div class="plan-head"><span>FREE PLAN</span><span>66%</span></div>
+          <div class="progress"><span></span></div>
+          <div class="plan-foot">20 / 30 Days left</div>
+        </div>
+
+        <a class="logout" href="#" id="logoutBtn">
+          <span style="width:28px;height:28px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);">↩</span>
+          Logga ut
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="panel">
+        <h2>Quiz</h2>
+        <div id="quizMeta" class="badge" style="margin-top:10px;"></div>
+      </section>
+
+      <section class="section-card">
+        <h3 id="qTitle">Laddar...</h3>
+        <div id="qText" style="margin-top:10px;"></div>
+
+        <div id="options" style="margin-top:14px; display:grid; gap:12px;"></div>
+
+        <div id="feedback" class="badge" style="margin-top:14px; display:none;"></div>
+
+        <div class="actions" style="margin-top:16px;">
+          <button id="nextBtn" class="btn" style="display:none;">Nästa</button>
+          <button id="backBtn" class="btn btn-outline">Tillbaka till Foto</button>
+        </div>
+      </section>
+
+      <section class="section-card" id="resultCard" style="display:none;">
+        <h3>Resultat</h3>
+        <div id="finalScore" style="margin-top:10px;"></div>
+        <div class="actions" style="margin-top:16px;">
+          <button id="restartBtn" class="btn">Gör om quiz</button>
+        </div>
+      </section>
+
+      <div class="footer">
+        <small>© 2025 Pluggis</small>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="assets/quiz.js"></script>
+  <script>
+    const lb = document.getElementById('logoutBtn');
+    if (lb) {
+      lb.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('pluggis_user');
+        location.href = 'login.html';
+      });
+    }
+  </script>
+</body>
+</html>

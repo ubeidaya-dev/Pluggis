@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pluggis - Hem</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/app.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">📖</div>
+        <div class="sidebar-title">PLUGGIS.</div>
+      </div>
+
+      <div class="sidebar-section">MAIN MENU</div>
+
+      <nav class="nav">
+        <a class="active" href="home.html">
+          <span class="icon">⌂</span> Hem <span style="margin-left:auto;opacity:.55;">›</span>
+        </a>
+        <a href="prov.html">
+          <span class="icon">📄</span> Prov
+        </a>
+        <a href="kommentarer.html">
+          <span class="icon">💬</span> Kommentarer
+        </a>
+        <a href="profil.html">
+          <span class="icon">👤</span> Profil
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="plan">
+          <div class="plan-head">
+            <span>FREE PLAN</span>
+            <span>66%</span>
+          </div>
+          <div class="progress"><span></span></div>
+          <div class="plan-foot">20 / 30 Days left</div>
+        </div>
+
+        <a class="logout" href="#" id="logoutBtn">
+          <span style="width:28px;height:28px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);">↩</span>
+          Logga ut
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <h1 class="page-title">Välkommen, <span id="firstName">Elev</span>! 💜</h1>
+      <div class="page-sub">Redo att glänsa idag? ✨</div>
+
+      <section class="dashboard-grid">
+        <article class="bigcard">
+          <div class="tile blue">📄</div>
+          <h3>Prov</h3>
+          <p>Kolla läget inför nästa prov!</p>
+          <button class="go" onclick="location.href='prov.html'">→</button>
+        </article>
+
+        <article class="bigcard">
+          <div class="tile purple">☕</div>
+          <h3>Inte Prov</h3>
+          <p>Ingen stress, bara mys-plugg.</p>
+          <button class="go" onclick="location.href='inteprov.html'">→</button>
+        </article>
+
+        <article class="bigcard active">
+          <div class="tile dark">📷</div>
+          <h3>Ta foto 📸</h3>
+          <p>Spara tavlan eller dina anteckningar.</p>
+          <button class="go" onclick="location.href='upload.html'"></button>
+        </article>
+      </section>
+
+      <section style="margin-top:24px; display:grid; grid-template-columns: 1.2fr .8fr; gap:24px;">
+        <div class="section-card" style="min-height:260px;">
+          <h3 style="display:flex; align-items:center; gap:12px;">
+            <span style="width:42px;height:42px;border-radius:14px;background:rgba(19,182,255,.12);display:grid;place-items:center;">📚</span>
+            <span style="color:#13b6ff;font-weight:900;">Dina Ämnen</span>
+          </h3>
+
+          <div style="margin-top:18px; display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+            <div class="card" style="padding:16px 18px; border-radius:18px; box-shadow:none;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong>Matematik</strong>
+                <span style="padding:6px 10px;border-radius:999px;background:rgba(19,182,255,.12);color:#0ea5e9;font-weight:700;">3 uppgifter</span>
+              </div>
+            </div>
+            <div class="card" style="padding:16px 18px; border-radius:18px; box-shadow:none;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong>Svenska</strong>
+                <span style="padding:6px 10px;border-radius:999px;background:rgba(19,182,255,.12);color:#0ea5e9;font-weight:700;">3 uppgifter</span>
+              </div>
+            </div>
+            <div class="card" style="padding:16px 18px; border-radius:18px; box-shadow:none;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong>Engelska</strong>
+                <span style="padding:6px 10px;border-radius:999px;background:rgba(19,182,255,.12);color:#0ea5e9;font-weight:700;">3 uppgifter</span>
+              </div>
+            </div>
+            <div class="card" style="padding:16px 18px; border-radius:18px; box-shadow:none;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong>NO</strong>
+                <span style="padding:6px 10px;border-radius:999px;background:rgba(19,182,255,.12);color:#0ea5e9;font-weight:700;">3 uppgifter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card" style="min-height:260px; background:linear-gradient(180deg, rgba(106,52,255,.10), rgba(122,167,255,.10));">
+          <h3 style="display:flex; align-items:center; gap:12px; color:var(--purple-700);">
+            <span style="width:42px;height:42px;border-radius:14px;background:rgba(91,43,182,.12);display:grid;place-items:center;">💬</span>
+            Lärarens Feedback
+          </h3>
+
+          <div style="margin-top:18px; background:#fff; border-radius:18px; border-left:6px solid rgba(91,43,182,.85); padding:18px 18px; color:rgba(15,23,42,.78); font-style:italic;">
+            "Bra jobbat på matteprovet! Tänk på att repetera bråkräkning inför nästa vecka."
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

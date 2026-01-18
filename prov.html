@@ -1,0 +1,120 @@
+<!-- prov.html (behåller ALLA id:n + assets/prov.js) -->
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pluggis - Prov</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/prov.js"></script>
+  <script>(function(){const u=localStorage.getItem('pluggis_user');if(!u){location.href='login.html';}})();</script>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">📖</div>
+        <div class="sidebar-title">PLUGGIS.</div>
+      </div>
+
+      <div class="sidebar-section">MAIN MENU</div>
+
+      <nav class="nav">
+        <a href="home.html"><span class="icon">⌂</span> Hem</a>
+        <a class="active" href="prov.html"><span class="icon">📄</span> Prov <span style="margin-left:auto;opacity:.55;">›</span></a>
+        <a href="kommentarer.html"><span class="icon">💬</span> Kommentarer</a>
+        <a href="profil.html"><span class="icon">👤</span> Profil</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="plan">
+          <div class="plan-head"><span>FREE PLAN</span><span>66%</span></div>
+          <div class="progress"><span></span></div>
+          <div class="plan-foot">20 / 30 Days left</div>
+        </div>
+
+        <a class="logout" href="#" id="logoutBtn">
+          <span style="width:28px;height:28px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);">↩</span>
+          Logga ut
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="panel">
+        <h2>Prov - Underlag</h2>
+
+        <div class="formgrid">
+          <div class="row" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+            <div class="field">
+              <label for="subject">Ämne</label>
+              <select id="subject">
+                <option value="svenska">📘 Svenska</option>
+                <option value="matte">🔢 Matte</option>
+                <option value="no">🔬 NO</option>
+                <option value="so">🌍 SO</option>
+                <option value="engelska">🇬🇧 Engelska</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="difficulty">Nivå</label>
+              <select id="difficulty">
+                <option value="super">Jättelätt</option>
+                <option value="easy" selected>Lätt</option>
+                <option value="hard">Avancerad</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="targetGrade">Mål-betyg</label>
+              <select id="targetGrade">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C" selected>C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="underlag">Underlag</label>
+            <textarea id="underlag" placeholder="Klistra in underlaget..."></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnSummary" class="btn" type="button">Skapa sammanfattning</button>
+          <button id="btnExercises" class="btn" type="button">Skapa övningar</button>
+          <span id="status" class="badge"></span>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h3>Sammanfattning</h3>
+        <div id="summary" class="output"></div>
+      </section>
+
+      <section class="section-card">
+        <h3>Övningar</h3>
+        <div id="exercises" class="output"></div>
+      </section>
+
+      <div class="footer"><small>© 2025 Pluggis</small></div>
+    </main>
+  </div>
+
+  <script>
+    const lb = document.getElementById('logoutBtn');
+    if (lb) {
+      lb.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('pluggis_user');
+        location.href = 'login.html';
+      });
+    }
+  </script>
+</body>
+</html>

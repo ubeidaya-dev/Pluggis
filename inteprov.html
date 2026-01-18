@@ -1,0 +1,121 @@
+<!-- inteprov.html (behåller ALLA id:n + assets/inteprov.js) -->
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pluggis - Inte prov</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/inteprov.js"></script>
+  <script>(function(){const u=localStorage.getItem('pluggis_user');if(!u){location.href='login.html';}})();</script>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">📖</div>
+        <div class="sidebar-title">PLUGGIS.</div>
+      </div>
+
+      <div class="sidebar-section">MAIN MENU</div>
+
+      <nav class="nav">
+        <a href="home.html"><span class="icon">⌂</span> Hem</a>
+        <a href="prov.html"><span class="icon">📄</span> Prov</a>
+        <a class="active" href="inteprov.html"><span class="icon">☕</span> Inte prov <span style="margin-left:auto;opacity:.55;">›</span></a>
+        <a href="kommentarer.html"><span class="icon">💬</span> Kommentarer</a>
+        <a href="profil.html"><span class="icon">👤</span> Profil</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="plan">
+          <div class="plan-head"><span>FREE PLAN</span><span>66%</span></div>
+          <div class="progress"><span></span></div>
+          <div class="plan-foot">20 / 30 Days left</div>
+        </div>
+
+        <a class="logout" href="#" id="logoutBtn">
+          <span style="width:28px;height:28px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);">↩</span>
+          Logga ut
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="panel">
+        <h2>Inte prov - Fråga/Underlag</h2>
+
+        <div class="formgrid">
+          <div class="row" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+            <div class="field">
+              <label for="npSubject">Ämne</label>
+              <select id="npSubject">
+                <option value="svenska">📘 Svenska</option>
+                <option value="matte">🔢 Matte</option>
+                <option value="engelska">🇬🇧 Engelska</option>
+                <option value="no">🔬 NO</option>
+                <option value="so">🌍 SO</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="npDifficulty">Nivå</label>
+              <select id="npDifficulty">
+                <option value="super">Jättelätt</option>
+                <option value="easy" selected>Lätt</option>
+                <option value="hard">Avancerad</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="npGrade">Mål-betyg</label>
+              <select id="npGrade">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C" selected>C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="npInput">Fråga / Text</label>
+            <textarea id="npInput" placeholder="Skriv din fråga eller klistra in en uppgift/text..."></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnExplain" class="btn" type="button">Förklara</button>
+          <button id="btnMakeExercises" class="btn" type="button">Skapa övningar</button>
+          <span id="npStatus" class="badge"></span>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h3>Förklaring</h3>
+        <div id="npExplainOut" class="output"></div>
+      </section>
+
+      <section class="section-card">
+        <h3>Övningar</h3>
+        <div id="npExercisesOut" class="output"></div>
+      </section>
+
+      <div class="footer"><small>© 2025 Pluggis</small></div>
+    </main>
+  </div>
+
+  <script>
+    const lb = document.getElementById('logoutBtn');
+    if (lb) {
+      lb.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('pluggis_user');
+        location.href = 'login.html';
+      });
+    }
+  </script>
+</body>
+</html>

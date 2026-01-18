@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pluggis - Foto</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>
+    (function () {
+      const u = localStorage.getItem('pluggis_user');
+      if (!u) location.href = 'login.html';
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">📖</div>
+        <div class="sidebar-title">PLUGGIS.</div>
+      </div>
+
+      <div class="sidebar-section">MAIN MENU</div>
+
+      <nav class="nav">
+        <a href="home.html"><span class="icon">⌂</span> Hem</a>
+        <a href="prov.html"><span class="icon">📄</span> Prov</a>
+        <a href="inteprov.html"><span class="icon">☕</span> Inte prov</a>
+        <a class="active" href="upload.html"><span class="icon">📷</span> Foto <span style="margin-left:auto;opacity:.55;">›</span></a>
+        <a href="privacy.html"><span class="icon">🔒</span> Integritet</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="plan">
+          <div class="plan-head"><span>FREE PLAN</span><span>66%</span></div>
+          <div class="progress"><span></span></div>
+          <div class="plan-foot">20 / 30 Days left</div>
+        </div>
+
+        <a class="logout" href="#" id="logoutBtn">
+          <span style="width:28px;height:28px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);">↩</span>
+          Logga ut
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="panel">
+        <h2>Foto</h2>
+
+        <div class="formgrid">
+          <div class="field">
+            <label for="photoInput">Bild</label>
+            <input id="photoInput" type="file" accept="image/*" capture="environment" class="input" />
+            <div id="ocrStatus" class="badge" style="margin-top:10px;"></div>
+          </div>
+
+          <div class="field">
+            <label for="ocrText">Text</label>
+            <textarea id="ocrText" rows="10" placeholder="Texten från bilden hamnar här..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="action">Vad vill du skapa?</label>
+            <select id="action">
+              <option value="quiz">Quiz</option>
+              <option value="summary">Sammanfattning</option>
+              <option value="simple">Enkel förklaring</option>
+              <option value="advanced">Avancerad förklaring</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="goal-grade">Målbetyg</label>
+            <select id="goal-grade">
+              <option value="A">A</option>
+              <option value="C" selected>C</option>
+              <option value="E">E</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="numQuestions">Antal frågor (bara quiz)</label>
+            <select id="numQuestions">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="nextStep" class="btn">Skapa</button>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h3>Resultat</h3>
+
+        <div id="resultBox" class="output" style="white-space:normal;">
+          <pre id="aiResult" style="white-space:pre-wrap; margin:0;"></pre>
+          <div id="quizUI" style="display:none; margin-top:12px;"></div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <small>© 2025 Pluggis</small>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    const lb = document.getElementById('logoutBtn');
+    if (lb) {
+      lb.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('pluggis_user');
+        location.href = 'login.html';
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="assets/ocr.js"></script>
+</body>
+</html>

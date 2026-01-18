@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pluggis - Spel</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<main class="wrap">
+  <h1>🎮 Spel</h1>
+
+  <section class="card" id="game-settings">
+    <h2>Inställningar</h2>
+
+    <label>Årskurs</label>
+    <select id="grade-year">
+      <option value="7">Åk 7</option>
+      <option value="8">Åk 8</option>
+      <option value="9">Åk 9</option>
+      <option value="gy1">Gymnasiet åk 1</option>
+      <option value="gy2">Gymnasiet åk 2</option>
+      <option value="gy3">Gymnasiet åk 3</option>
+    </select>
+
+    <label>Målbetyg</label>
+    <select id="goal-grade">
+      <option value="A">A</option>
+      <option value="C">C</option>
+      <option value="E">E</option>
+    </select>
+
+    <label>Ämne</label>
+    <select id="subject">
+      <option value="">Välj ämne</option>
+      <option value="matte">Matte</option>
+      <option value="svenska">Svenska</option>
+      <option value="no">NO</option>
+      <option value="so">SO</option>
+      <option value="engelska">Engelska</option>
+    </select>
+
+    <label>Område</label>
+    <select id="area">
+      <option value="">Välj område</option>
+    </select>
+
+    <label>Underlag (klistra in text)</label>
+    <textarea id="source-text" rows="6" placeholder="Klistra in anteckningar, text från läraren, osv..."></textarea>
+
+    <label>Vill du ha ledtrådar?</label>
+    <select id="hints">
+      <option value="yes">Ja</option>
+      <option value="no">Nej</option>
+    </select>
+
+    <label>Vad vill du få?</label>
+    <select id="mode">
+      <option value="questions">Bara frågor</option>
+      <option value="summary_and_questions">Sammanfattning + frågor</option>
+    </select>
+
+    <button id="start-game" class="btn">▶️ Börja spela</button>
+  </section>
+
+  <section class="card" id="game-room" style="display:none;">
+    <h2>🚀 Space Waves</h2>
+    <iframe id="game-frame" style="width:100%; height:520px; border:0;"></iframe>
+  </section>
+</main>
+
+<div id="study-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75);">
+  <div style="max-width:720px; margin:8% auto; background:#111; color:#fff; padding:16px; border:1px solid #444;">
+    <h3>📚 Dags att plugga</h3>
+    <div id="overlay-content" style="white-space:pre-wrap; margin-top:10px;"></div>
+    <input id="answer" placeholder="Skriv ditt svar..." style="width:100%; margin-top:12px; padding:10px;" />
+    <div style="display:flex; gap:10px; margin-top:10px;">
+      <button id="submit-answer">✅ Svara</button>
+      <button id="close-overlay">▶️ Fortsätt spela</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/game.js"></script>
+</body>
+</html>
