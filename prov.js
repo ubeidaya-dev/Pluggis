@@ -30,13 +30,13 @@ btnSummary.addEventListener('click', async ()=>{
   summaryEl.textContent='';
   const base=adaptPromptBase();
   const text=underlag.value||'';
-  const out=await callFn('/.netlify/functions/summarize',{text, length:'medium', base});
+  //const out=await callFn('/.netlify/functions/summarize',{text, length:'medium', base});
   summaryEl.textContent=out;
 });
 btnExercises.addEventListener('click', async ()=>{
   exercisesEl.textContent='';
   const base=adaptPromptBase();
   const text=underlag.value||'';
-  const out=await callFn('/.netlify/functions/exercises',{text, targetGrade: (readPrefs().grade||targetGrade.value||'C'), base});
+  //const out=await callFn('/.netlify/functions/exercises',{text, targetGrade: (readPrefs().grade||targetGrade.value||'C'), base});
   exercisesEl.textContent=out;
 });
